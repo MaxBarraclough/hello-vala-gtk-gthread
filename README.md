@@ -1,7 +1,7 @@
 Description
 ===========
 
-A 'hello world' for Gtk, GLib threads, GLib thread pools, and GLib timeouts, in the Vala language.
+A 'hello world' for GTK+, GLib threads, GLib thread pools, and GDK timeouts, in the Vala language.
 
 
 Building and Running

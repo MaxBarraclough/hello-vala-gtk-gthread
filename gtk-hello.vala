@@ -53,8 +53,8 @@ void doSleepyAdjustmentSequenceForSliderProxy(SUPair p) {
 
 // If threadPool were local, it would be destroyed as it went out of scope,
 // which would block the main thread. To avoid this, we just make it global.
-ThreadPool<SUPair> threadPool;
-// can't be initialised here: constructor is not only constant, it also might throw
+GLib.ThreadPool<SUPair> threadPool;
+// can't be initialised here: constructor is not only not constant, it also might throw
 
 public class SyncSample : Gtk.Window {
    private SpinButton spin_box;
@@ -107,7 +107,7 @@ if(true)
 // After 7 seconds, assign 7
 if(true)
 {
-      /* var eventSourceId = */ threads_add_timeout_seconds( 7, () => { 
+      /* var eventSourceId = */ Gdk.threads_add_timeout_seconds( 7, () => {
 //      No need to wrap in invoke: timeouts already handled by correct thread
 //      GLib.MainContext.default().invoke( () => {
           slider.adjustment.value = 7; // return GLib.Source.REMOVE;
